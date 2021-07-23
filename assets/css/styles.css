@@ -1,0 +1,555 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+:root
+{
+    --cyan: #03cfce;
+    --red: #e93e51;
+    --yellow: #fbf040;
+    --black: #000000;
+    --black-2: #131112;
+    --white: #fbfaf8; 
+
+    --dark-one: #212529;
+    --dark-two: #343a40;
+    --dark-three: #495057;
+    --dark-four: #6c757d;
+    --dark-five: #adb5bd;
+
+    --light-primary: #FFFFFF; /* white */
+    --light-secondary: #f8f9fa; /* Isabelline */
+    --light-tertiary: #e9ecef; /* honeydew */
+    --light-quaternary: #dee2e6; /* timberwolf */
+    --light-quintinary: #ced4da;
+
+    --dark-blue-primary: #0C1B31; /* oxfor-blue-2 */
+    --dark-blue-secondary: #102542; /* oxford-blue */
+    --dark-blue-tertiary: #1d3548;
+
+    --facebook: #3b5998;
+    --youtube: #FF0000;
+    --twitter: #1DA1F2;
+    --instagram: #C13584;
+    --twitch: #6441a5;
+    --tiktok: #FFFFFF;
+    --tiktok-2: #EE1D52;
+    --tiktok-3: #69C9D0;
+    --tiktok-4: #010101;
+
+    /* */
+    --width-menu-crew: 300px;
+    --width-video: 853px;
+    --height-video: 480px;
+    
+    --source-sans-pro: 'Source Sans Pro', sans-serif;
+}
+*
+{
+    margin: 0;
+    padding: 0;box-sizing: border-box;
+}
+html
+{
+    scroll-behavior: smooth;
+}
+body
+{
+    min-height: 100vh;
+    background: var(--white);
+    color: #333;
+    font-family: 'Poppins', sans-serif; 
+    overflow-x: hidden;
+}
+.container
+{
+    width: 100%;
+    position: relative;
+}
+.container .header
+{
+    width: 100%;
+    height: 60px;
+    background: var(--cyan);
+    display: flex;
+    justify-content: space-evenly;
+    position: fixed;
+    overflow: hidden;
+    z-index: 9;
+    box-shadow: 0 0px 20px rgba(0,0,0,0.5);
+}
+.container .header .icon
+{
+    height:100%;
+    position: relative;
+}
+.container .header .icon::before
+{
+    content: "";
+    width: calc(100% * 50);
+    height: 100%;
+    background: var(--red);
+    position: absolute;
+    left: calc(-100% * 50);
+    z-index: 9;
+}
+.container .header .icon img
+{
+    height: 100%;
+    z-index: 10;
+    position: relative;
+}
+.container .header .options
+{
+    display: flex;
+    height: 100%;
+    align-items: center;
+}
+.container .header .options a
+{
+    text-decoration: none;
+    color: var(--white);
+    font-size: 1.2em;
+    padding: 18px 20px;
+    background: rgba(0,0,0,0.1);
+    border-bottom: 5px solid transparent;
+    transition: .2s;
+}
+.container .header .options a:hover
+{
+    border-bottom-color: var(--yellow);
+}
+/*
+*/
+.container .container-general
+{
+    position: relative;
+    padding-top: 60px;
+    display: flex;
+    flex-direction: row;
+}
+.container .container-general .crew-container{
+    position: sticky;
+    width: var(--width-menu-crew);
+    top: 60px;
+    background: var(--white);
+    box-shadow: 0 0 20px rgba(0,0,0,0.2);
+    height: calc(100vh - 60px);
+}
+.container .container-general .crew-container .crew-sep
+{
+    padding: 20px 0 20px 13px;
+    display: flex;
+    flex-direction: column;
+}
+.container .container-general .crew-container .crew-sep .title
+{
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    margin-bottom: 5px;
+}
+.container .container-general .crew-container .crew-sep .miembros ul li
+{
+    min-height: calc(60px + 10px);
+    display: flex;
+    list-style: none;
+    align-items:center;
+    flex-direction: row;
+    padding: 10px;
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+    transition: .3s;
+    position: relative;
+}
+.container .container-general .crew-container .crew-sep .miembros ul li:hover
+{
+    background: var(--light-quaternary);
+}
+.container .container-general .crew-container .crew-sep .miembros ul li .img-crew 
+{
+    width: 60px;
+    height: 60px;
+    margin-right: 15px;
+    cursor: pointer;
+    position: relative;
+}
+.container .container-general .crew-container .crew-sep .miembros ul li .img-crew:hover .img-live-txt
+{
+    opacity: 1;
+    top: -40px;
+    visibility: visible;
+}
+.container .container-general .crew-container .crew-sep .miembros ul li .img-crew .img-live-txt
+{
+    position: absolute;
+    width: 230px;
+    padding: 10px;
+    border-radius: 5px;
+    background: var(--dark-one);
+    color: var(--white);
+    top: -20px;
+    opacity: 0;
+    transition: .3s;
+    visibility: hidden;
+}
+.container .container-general .crew-container .crew-sep .miembros ul li .img-crew .img-live-txt:hover
+{
+    background: var(--dark-three);
+}
+.container .container-general .crew-container .crew-sep .miembros ul li .img-crew .img-live-txt:hover::before
+{
+    background: var(--dark-three)
+}
+.container .container-general .crew-container .crew-sep .miembros ul li .img-crew .img-live-txt a
+{
+    color: var(--white);
+    text-decoration: none;
+}
+.container .container-general .crew-container .crew-sep .miembros ul li .img-crew .img-live-txt::before
+{
+    content: "";
+    width: 20px;
+    position: absolute;
+    left: 23px;
+    bottom: -10px;
+    transform: rotate(45deg);
+    background: var(--dark-one);
+    height: 20px;
+    border-right: 1px solid var(--cyan);
+    border-bottom: 1px solid var(--cyan);
+    transition: .3s;
+}
+.container .container-general .crew-container .crew-sep .miembros ul li .img-live
+{
+    position: absolute;
+    right: 20px;
+    bottom: 20px;    
+}
+.container .container-general .crew-container .crew-sep .miembros ul li .img-live::before
+{
+    content: "";
+    width:15px;
+    height:15px;
+    position: absolute;
+    border: 3px solid var(--white);
+    border-radius: 50%;
+}
+.container .container-general .crew-container .crew-sep .miembros ul li .img-live.facebook::before
+{
+    background: var(--facebook);
+}
+.container .container-general .crew-container .crew-sep .miembros ul li .img-live.twitch::before
+{
+    background: var(--twitch);
+}
+.container .container-general .crew-container .crew-sep .miembros ul li .img-live.afk::before
+{
+    background: var(--dark-four);
+}
+.container .container-general .crew-container .crew-sep .miembros ul li .img-crew img
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+.container .container-general .crew-container .crew-sep .miembros ul li .crew-info
+{
+    display: flex;
+    flex-direction: column;
+}
+.container .container-general .crew-container .crew-sep .miembros ul li .crew-info > div
+{
+    display: flex;
+    align-items: center;
+}
+.container .container-general .crew-container .crew-sep .miembros ul li .crew-info .crew-name
+{
+    font-size: 1.4em;
+    margin-left: 5px;
+    cursor: default;
+}
+.container .container-general .crew-container .crew-sep .miembros ul li .crew-info .crew-redes
+{
+    display: flex;
+    width: 136px;
+    flex-direction: row;
+    position: relative;
+    flex-wrap: wrap;
+}
+.container .container-general .crew-container .crew-sep .miembros ul li .crew-info .crew-redes a
+{
+    text-decoration: none;
+    color: var(--dark-one);
+    font-size: 1.5em;
+    margin: 0 5px;
+    transition: .3s;
+}
+.container .container-general .crew-container .crew-sep .miembros ul li .crew-info .crew-redes a.facebook:hover
+{
+    color: var(--facebook);
+}
+.container .container-general .crew-container .crew-sep .miembros ul li .crew-info .crew-redes a.youtube:hover
+{
+    color: var(--youtube);
+}
+.container .container-general .crew-container .crew-sep .miembros ul li .crew-info .crew-redes a.instagram:hover
+{
+    color: var(--instagram);
+}
+.container .container-general .crew-container .crew-sep .miembros ul li .crew-info .crew-redes a.twitch:hover
+{
+    color: var(--twitch);
+}
+.container .container-general .crew-container .crew-sep .miembros ul li .crew-info .crew-redes a.twitter:hover
+{
+    color: var(--twitter);
+}
+.container .container-general .crew-container .crew-sep .miembros ul li .crew-info .crew-redes a.tiktok:hover
+{
+    color: var(--tiktok-4);
+    text-shadow: 1px 1px var(--tiktok-2),
+                -2px -2px var(--tiktok-3);
+}
+.container .container-general .container-contenido
+{
+    width: calc(100vw - 300px);
+    background: var(--light-tertiary);
+    overflow-x:hidden;
+}
+.container .container-general .container-contenido .container-events
+{
+    width: 100%;
+    height: 300px;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--light-secondary);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1)
+}
+.container .container-general .container-contenido .container-events .promotional-content
+{
+    height: 100%;
+    display: flex;
+    width: 50%;
+    justify-content: end;
+}
+.container .container-general .container-contenido .container-events .promotional-content iframe
+{
+    width: calc(var(--width-video) - 240px);
+    height: calc(var(--height-video) - 180px)
+}
+.container .container-general .container-contenido .container-events .promotional-txt
+{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 50%;
+}
+.container .container-general .container-contenido .container-events .promotional-txt a
+{
+    text-decoration: none;
+    padding: 10px;
+    background: var(--red);
+    color: var(--white);
+    border-radius: 50px;
+    transition: .2s;
+}
+.container .container-general .container-contenido .container-events .promotional-txt a:hover
+{
+    background: var(--twitter)
+}
+.container .container-general .container-contenido .container-events .cerrar-event
+{
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    font-size: 2em;
+    cursor: pointer;
+}
+.container .container-general .container-contenido .c-contenido
+{
+    width: 100%;
+    padding: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.container .container-general .container-contenido .c-contenido .c-live-now
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    border-bottom: 1px solid rgba(0,0,0,.1);
+}
+.container .container-general .container-contenido .c-contenido .c-live-now .title
+{
+    width: 100%;
+    font-size: 2em;
+}
+.container .container-general .container-contenido .c-contenido .c-live-now .contenido 
+{
+    display: flex;
+    width: 100%;
+    overflow-x: scroll;
+    position: relative;
+    height: 336px;
+}
+.container .container-general .container-contenido .c-contenido .c-live-now .contenido .container-lives
+{
+    margin-right: 8px;
+    border-radius: 5px;
+    /*display: none;*/
+    width: 560px;
+    height: 314px;
+    position: relative;
+}
+.container .container-general .container-contenido .c-contenido .c-live-now .contenido .container-lives iframe
+{
+    width: 560px;
+    height: 314px;
+    border-radius: 10px;
+    position: relative;
+    z-index: 6;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+}
+.container .container-general .container-contenido .c-contenido .c-live-now .contenido .container-lives::before
+{
+    content: "Aun no ha prendido Directo";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    text-align: center;
+    justify-content:center;
+    align-items: center;
+    font-size: 3em;
+    z-index: 5;
+
+}
+.container .container-general .container-contenido .c-contenido .c-live-now .contenido .nothing
+{
+    width: 100%;
+    height: 360px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position: absolute;
+    font-size: 2em;
+    top: 0;
+    left: 0;
+    display: none;
+}
+.container .container-general .container-contenido .c-contenido .c-live-now .contenido::-webkit-scrollbar
+{
+    width: 10px;
+    height: 15px;
+}
+/* Ponemos un color de fondo y redondeamos las esquinas del thumb */
+.container .container-general .container-contenido .c-contenido .c-live-now .contenido::-webkit-scrollbar-thumb {
+    background: #ccc;
+    border-radius: 4px;
+}
+
+/* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+.container .container-general .container-contenido .c-contenido .c-live-now .contenido::-webkit-scrollbar-thumb:hover {
+    background: #b3b3b3;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Cambiamos el fondo cuando esté en active */
+.container .container-general .container-contenido .c-contenido .c-live-now .contenido::-webkit-scrollbar-thumb:active {
+    background-color: #999999;
+}
+/* Ponemos un color de fondo y redondeamos las esquinas del track */
+.container .container-general .container-contenido .c-contenido .c-live-now .contenido::-webkit-scrollbar-track {
+    background: #e1e1e1;
+    border-radius: 4px;
+}
+
+/* Cambiamos el fondo cuando esté en active o hover */
+.container .container-general .container-contenido .c-contenido .c-live-now .contenido::-webkit-scrollbar-track:hover,
+.container .container-general .container-contenido .c-contenido .c-live-now .contenido::-webkit-scrollbar-track:active {
+  background: #d4d4d4;
+}
+.container .container-general .container-contenido .c-contenido .loading
+{
+    display: flex;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+    height: 100px;
+}
+.container .container-general .container-contenido .c-contenido .loading ul.loading-ul
+{
+    position: absolute;
+    transform: translateY(-50%);
+    bottom: 0;
+}
+.container .container-general .container-contenido .c-contenido .loading ul.loading-ul li.loading-li
+{
+    list-style: none;
+    display: inline-block;
+    width: 5px;
+    height: 40px;
+    margin: 0 3px;
+    background: var(--red);
+    animation: animate 1.2s infinite linear;
+}
+@keyframes animate{
+    0%{
+        transform: scaleY(1);
+    }
+    25%{
+        transform: scaleY(2);
+    }
+    50%{
+        transform: scaleY(1);
+    }
+    100%{
+        transform: scaleY(1);
+    }
+}
+.container .container-general .container-contenido .c-contenido .loading ul.loading-ul li:nth-child(1)
+{
+    animation-delay: 0s;
+}
+.container .container-general .container-contenido .c-contenido .loading ul.loading-ul li:nth-child(2)
+{
+    animation-delay: .1s;
+}
+.container .container-general .container-contenido .c-contenido .loading ul.loading-ul li:nth-child(3)
+{
+    animation-delay: .2s;
+}
+.container .container-general .container-contenido .c-contenido .loading ul.loading-ul li:nth-child(4)
+{
+    animation-delay: .3s;
+}
+.container .container-general .container-contenido .c-contenido .loading ul.loading-ul li:nth-child(5)
+{
+    animation-delay: .4s;
+}
+.container .container-general .container-contenido .c-contenido .loading ul.loading-ul li:nth-child(6)
+{
+    animation-delay: .5s;
+}
+.container .container-general .container-contenido .c-contenido .loading ul.loading-ul li:nth-child(7)
+{
+    animation-delay: .6s;
+}
+.container .container-general .container-contenido .c-contenido .loading ul.loading-ul li:nth-child(8)
+{
+    animation-delay: .7s;
+}
+.container .container-general .container-contenido .c-contenido .loading ul.loading-ul li:nth-child(9)
+{
+    animation-delay: .8s;
+}
+.cerrado
+{
+    display: none !important; 
+}
