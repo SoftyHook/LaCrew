@@ -728,6 +728,7 @@ body
     .container .container-general .container-contenido .c-contenido .c-live-now .contenido
     {
         height: calc(336px - 118px);
+        overflow-y: hidden;
     }
 }
 @media (max-width:420px){
