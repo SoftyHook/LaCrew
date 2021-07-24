@@ -34,6 +34,7 @@
     --tiktok-2: #EE1D52;
     --tiktok-3: #69C9D0;
     --tiktok-4: #010101;
+    --discord: 	#5769e7;
 
     /* */
     --width-menu-crew: 300px;
@@ -102,6 +103,7 @@ body
     display: flex;
     height: 100%;
     align-items: center;
+    text-align: center;
 }
 .container .header .options a
 {
@@ -113,9 +115,41 @@ body
     border-bottom: 5px solid transparent;
     transition: .2s;
 }
+.container .header .options a i
+{
+    display: none;
+}
 .container .header .options a:hover
 {
     border-bottom-color: var(--yellow);
+}
+.container .header .btn-open
+{
+    display: none;
+}
+.container .header .btn-open i
+{
+    color: var(--black-2);
+    font-size: 2.7em;
+    position: absolute;
+}
+.container .header .btn-open i.close,
+.container .header .btn-open.active i.open
+{
+    visibility: visible;
+}
+.container .header .btn-open i.open,
+.container .header .btn-open.active i.close
+{
+    visibility: hidden;
+}
+.container .header .btn-open.active
+{
+    background: var(--red);
+}
+.container .header .btn-open.active i
+{
+    color: var(--white);
 }
 /*
 */
@@ -133,7 +167,40 @@ body
     background: var(--white);
     box-shadow: 0 0 20px rgba(0,0,0,0.2);
     height: calc(100vh - 60px);
+    overflow-y: scroll;
 }
+.container .container-general .crew-container::-webkit-scrollbar
+{
+    width: 0px;
+    height: 15px;
+    transition: .3s ease all;
+}
+.container .container-general .crew-container:hover::-webkit-scrollbar
+{
+    width: 10px;
+}
+/* Ponemos un color de fondo y redondeamos las esquinas del thumb */
+.container .container-general .crew-container::-webkit-scrollbar-thumb {
+    background: #aaa;
+    border-radius: 100px;
+}
+
+/* Cambiamos el fondo y agregamos una sombra cuando esté en hover */
+.container .container-general .crew-container::-webkit-scrollbar-thumb:hover {
+    background: #b3b3b3;
+    box-shadow: 0 0 2px 1px rgba(0, 0, 0, 0.2);
+}
+
+/* Cambiamos el fondo cuando esté en active */
+.container .container-general .crew-container::-webkit-scrollbar-thumb:active {
+    background-color: #999999;
+}
+/* Ponemos un color de fondo y redondeamos las esquinas del track */
+.container .container-general .crew-container::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 4px;
+}
+
 .container .container-general .crew-container .crew-sep
 {
     padding: 20px 0 20px 13px;
@@ -274,7 +341,6 @@ body
     width: 136px;
     flex-direction: row;
     position: relative;
-    flex-wrap: wrap;
 }
 .container .container-general .crew-container .crew-sep .miembros ul li .crew-info .crew-redes a
 {
@@ -309,6 +375,10 @@ body
     color: var(--tiktok-4);
     text-shadow: 1px 1px var(--tiktok-2),
                 -2px -2px var(--tiktok-3);
+}
+.container .container-general .crew-container .crew-sep .miembros ul li .crew-info .crew-redes a.discord:hover
+{
+    color: var(--discord);
 }
 .container .container-general .container-contenido
 {
@@ -552,4 +622,114 @@ body
 .cerrado
 {
     display: none !important; 
+}
+@media (max-width:1024px)
+{
+    .container .container-general .crew-container
+    {
+        left: -300px;
+        transition: .3s;
+        position: fixed;
+        z-index: 9;
+    }
+    .container .container-general .crew-container.active 
+    {
+        left: 0;
+    }
+    .container .container-general .container-contenido
+    {
+        width: 100vw;
+    }
+    .container .header .btn-open
+    {
+        width: 60px;
+        height: 60px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        right: 0;
+    }
+    .container .header .options {
+        display: flex;
+        height: 66px;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        justify-content: center;
+        border-top-left-radius: 20px;
+        border-top-right-radius: 20px;
+        overflow: hidden;
+        width: 100%;
+        background: var(--red);
+    }
+    .container .header .options a
+    {
+        background: var(--red);
+        margin: 0 -1px;
+        border-bottom: 0;
+    }
+    .container .header .options a span
+    {
+        display: none;
+    }
+    .container .header .options a i
+    {
+        display: inline;
+        font-size: 1.5em;
+    }
+}
+@media(max-width: 660px)
+{
+    .container .container-general .container-contenido .container-events
+    {
+        flex-direction: column;
+        height: calc(225px * 2);
+    }
+    .container .container-general .container-contenido .container-events .promotional-content
+    {
+        width: 100%;
+        justify-content: center;
+        height: 230px;
+    }
+    .container .container-general .container-contenido .container-events .promotional-txt
+    {
+        width: 100%;
+        height: 100%;
+    }
+    .container .container-general .container-contenido .container-events .cerrar-event
+    {
+        width: 50px;
+        height: 50px;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        bottom: 0;
+        right: 0;
+        background: var(--white);
+        z-index: 8;
+        top: unset;
+    }
+    .container .container-general .container-contenido .container-events .promotional-content iframe 
+    {
+        width: calc(var(--width-video) - 240px);
+        height: calc(var(--height-video) - 250px);
+    }
+    .container .container-general .container-contenido .c-contenido .c-live-now .title
+    {
+        font-size: 1.5em;   
+    }
+    .container .container-general .container-contenido .c-contenido .c-live-now .contenido .container-lives,
+    .container .container-general .container-contenido .c-contenido .c-live-now .contenido .container-lives iframe
+    {
+        width: calc(560px - 230px);
+        height: calc(314px - 125px);
+    }
+    .container .container-general .container-contenido .c-contenido .c-live-now .contenido
+    {
+        height: calc(336px - 118px);
+    }
+}
+@media (max-width:420px){
+    
 }
