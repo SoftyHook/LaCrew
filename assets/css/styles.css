@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 :root
 {
     --cyan: #03cfce;
@@ -42,6 +43,9 @@
     --height-video: 480px;
     
     --source-sans-pro: 'Source Sans Pro', sans-serif;
+
+    /* */
+    --Not-yet: url(../images/X.png);
 }
 *
 {
@@ -69,7 +73,7 @@ body
 {
     width: 100%;
     height: 60px;
-    background: var(--cyan);
+    background: var(--black-2);
     display: flex;
     justify-content: space-evenly;
     position: fixed;
@@ -81,22 +85,15 @@ body
 {
     height:100%;
     position: relative;
+    display: flex;justify-content: center;
+    align-items: center;
 }
-.container .header .icon::before
+.container .header .icon h1
 {
-    content: "";
-    width: calc(100% * 50);
-    height: 100%;
-    background: var(--red);
-    position: absolute;
-    left: calc(-100% * 50);
-    z-index: 9;
-}
-.container .header .icon img
-{
-    height: 100%;
-    z-index: 10;
-    position: relative;
+    font-family: 'Bebas Neue', cursive;
+    color: var(--white);
+    letter-spacing: .1em;
+    font-size: 3em;
 }
 .container .header .options
 {
@@ -111,7 +108,6 @@ body
     color: var(--white);
     font-size: 1.2em;
     padding: 18px 20px;
-    background: rgba(0,0,0,0.1);
     border-bottom: 5px solid transparent;
     transition: .2s;
 }
@@ -129,7 +125,7 @@ body
 }
 .container .header .btn-open i
 {
-    color: var(--black-2);
+    color: var(--white);
     font-size: 2.7em;
     position: absolute;
 }
@@ -145,11 +141,11 @@ body
 }
 .container .header .btn-open.active
 {
-    background: var(--red);
+    background: var(--white);
 }
 .container .header .btn-open.active i
 {
-    color: var(--white);
+    color: var(--black-2);
 }
 /*
 */
@@ -228,6 +224,30 @@ body
 .container .container-general .crew-container .crew-sep .miembros ul li:hover
 {
     background: var(--light-quaternary);
+}
+.container .container-general .crew-container .crew-sep .miembros ul li.of-discord
+{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    border-radius: 0;
+}
+.container .container-general .crew-container .crew-sep .miembros ul li.of-discord:hover
+{
+    width: 100%;
+}
+.container .container-general .crew-container .crew-sep .miembros ul li.of-discord h2
+{
+    font-size: 1.4em;
+}
+.container .container-general .crew-container .crew-sep .miembros ul li.of-discord a
+{
+    font-size: 5em;
+    color: var(--black-2);
+    transition: .3s;
 }
 .container .container-general .crew-container .crew-sep .miembros ul li .img-crew 
 {
@@ -376,7 +396,8 @@ body
     text-shadow: 1px 1px var(--tiktok-2),
                 -2px -2px var(--tiktok-3);
 }
-.container .container-general .crew-container .crew-sep .miembros ul li .crew-info .crew-redes a.discord:hover
+.container .container-general .crew-container .crew-sep .miembros ul li .crew-info .crew-redes a.discord:hover,
+.container .container-general .crew-container .crew-sep .miembros ul li.of-discord a:hover
 {
     color: var(--discord);
 }
@@ -385,6 +406,81 @@ body
     width: calc(100vw - 300px);
     background: var(--light-tertiary);
     overflow-x:hidden;
+}
+.container .container-general .container-contenido .explore
+{
+    width: 100%;
+    height: 110px;
+    background: var(--light-quaternary);
+    display: flex;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+.container .container-general .container-contenido .explore::-webkit-scrollbar
+{
+    display: none;
+}
+.container .container-general .container-contenido .explore .c-c-users
+{
+    margin: 0 10px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+.container .container-general .container-contenido .explore .c-c-users a
+{
+    text-decoration: none;
+    position: relative;
+}
+.container .container-general .container-contenido .explore .c-c-users a:hover .container-users
+{
+    background: rgba(0, 0, 0, 0.1)
+}
+.container .container-general .container-contenido .explore .c-c-users .container-users
+{
+    height: 100%;
+    transition: .3s;
+    position: relative;
+    padding: 5px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container .container-general .container-contenido .explore .c-c-users .not-yet::after
+{
+    content: "";
+    background-image: var(--Not-yet);
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 158px;
+    width: 158px;
+    top: -30px;
+    left: calc(50% - 77px); 
+}
+.container .container-general .container-contenido .explore .c-c-users .container-users .user-img
+{
+    width: 75px;
+    height: 75px;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50%;
+}
+.container .container-general .container-contenido .explore .c-c-users .container-users .user-img img
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.container .container-general .container-contenido .explore .c-c-users .container-users .user-name
+{
+    color: var(--dark-two);
 }
 .container .container-general .container-contenido .container-events
 {
@@ -648,6 +744,7 @@ body
         justify-content: center;
         align-items: center;
         position: absolute;
+        background: transparent;
         right: 0;
     }
     .container .header .options {
@@ -661,11 +758,11 @@ body
         border-top-right-radius: 20px;
         overflow: hidden;
         width: 100%;
-        background: var(--red);
+        background: var(--dark-one);
     }
     .container .header .options a
     {
-        background: var(--red);
+        background: var(--dark-one);
         margin: 0 -1px;
         border-bottom: 0;
     }
